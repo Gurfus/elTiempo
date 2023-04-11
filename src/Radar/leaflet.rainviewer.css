@@ -1,11 +1,10 @@
-
 .leaflet-control-rainviewer {
 }
 
 .leaflet-control-rainviewer-active {
     width: auto;
     height: auto;
-    background-color:rgba(255,255,255,0.5);
+    background-color: #fff;
     padding: 25px 25px;
 }
 
@@ -19,17 +18,17 @@
     position: relative;
 }
 
-.leaflet-control-rainviewer-opacityslider, .leaflet-control-rainviewer-positionslider{
+.leaflet-control-rainviewer-opacityslider, .leaflet-control-rainviewer-positionslider, .leaflet-control-rainviewer-label{
     display: block;
     clear: both;
-    margin-top: 2px;
+    margin-top: 15px;
 }
 
 .leaflet-control-rainviewer-timestamp {
     text-align: center;
     margin: auto;
     clear: both;
-    margin-top: 5px;
+    margin-top: 15px;
 }
 
 .leaflet-control-rainviewer-close {
@@ -53,7 +52,7 @@
     content: ' ';
     height: 16px;
     width: 2px;
-    background-color: #fc0808;
+    background-color: #333;
 }
 
 .leaflet-control-rainviewer-close:before {
@@ -61,52 +60,31 @@
 }
 
 .leaflet-control-rainviewer-close:after {
-    transform: rotate(-45deg);  
+    transform: rotate(-45deg);
 }
 
 .leaflet-control-rainviewer a.leaflet-control-rainviewer-button {
-    background: #fff url(./Radar/images/rainviewer.png) no-repeat 0 0;
+    background: #fff url(./images/rainviewer.png) no-repeat 0 0;
     background-size: 26px 26px;
 }
 
-.leaflet-control-rainviewer a {
-    background-position: 4px 4px;
+.leaflet-touch .leaflet-control-rainviewer a {
+    background-position: 2px 2px;
 }
 
 @media (-webkit-min-device-pixel-ratio:2),
 (min-resolution:192dpi) {
     .leaflet-control-rainviewer a {
-        background-image: url(./Radar/images/rainviewer@2x.png);
+        background-image: url(/src/Leaflet.Rainviewer/images/rainviewer@2x.png);
     }
 }
-.leaflet-control-rainviewer-startstop  {
-    background: rgba(255,255,255,0.5) url(./Radar/images/play-buttons.png) no-repeat 0 0;
-    background-size: 19px 19px;
-}
-input.leaflet-control-rainviewer-startstop {
-    width: 30px;
-    height: 40px;
+
+.leaflet-control-rainviewer-startstop{
+
+    background: #fff url(./images/play.png) no-repeat 0 0;
 }
 
-.leaflet-touch .leaflet-control-rainviewer a {
-    background-position: center;
-    border: transparent;
-    margin: auto;
+.leaflet-control-rainviewer a.leaflet-control-rainviewer-button {
+    background: #fff url(./images/rainviewer.png) no-repeat 0 0;
+    background-size: 26px 26px;
 }
-
-.leaflet-touch .leaflet-bar a {
-    width: 14px;
-    height: 14px;
-    line-height: 30px;
-    /* margin-left: 50px; */
-}
-a.leaflet-control-rainviewer-button.leaflet-bar-part {
-    width: 31px;
-    height: 25px;
-}
-
-
-
-
-
-
