@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import './index.css'
-import './Leaflet.Rainviewer/leaflet.rainviewer'
+import './LeafletRainviewer/leaflet.rainviewer'
 import { getData } from './data/getData'
 
 export const RadarView = () => {
