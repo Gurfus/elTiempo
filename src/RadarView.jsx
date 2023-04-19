@@ -2,24 +2,24 @@
 import React, { useEffect, useState } from 'react'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
-import './index.css'
+import './radar.css'
 import './Radar/leaflet.rainviewer'
 
-import { useFetchData } from './hooks/useFetchData'
+// import { useFetchData } from './hooks/useFetchData'
 
-export const RadarView = ({ city = 'Barcelona' }) => {
-  if (!city) return
+export const RadarView = ({ city }) => {
+  console.log(city)
+  const { lat, lon, name } = city
+  if (!name) return
   const [location, setLocation] = useState(L.latLng(41.3828939, 2.1774322))
-  const [weather, setWeather] = useState({})
-  const { dataWeather } = useFetchData(city)
 
-  console.log('WW', weather)
-  console.log('1r', dataWeather)
+  // const { dataWeather } = useFetchData(city)
+
+  // console.log('1r', dataWeather)
   const fetchData = () => {
-    if (dataWeather && typeof dataWeather.lat === 'number' && typeof dataWeather.lng === 'number') {
-      setWeather(dataWeather)
-      setLocation(L.latLng(dataWeather.lat,
-        dataWeather.lng)
+    if (typeof lat === 'number' && typeof lon === 'number') {
+      setLocation(L.latLng(lat,
+        lon)
 
       )
     }
@@ -27,7 +27,7 @@ export const RadarView = ({ city = 'Barcelona' }) => {
 
   useEffect(() => {
     fetchData()
-  }, [weather, dataWeather])
+  }, [city])
 
   useEffect(() => {
     const map = L.map('mapid', {}).setView(location, 8)

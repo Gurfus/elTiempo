@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { getData } from '../data/getData'
 
 export const useFetchData = (city) => {
+  const { name } = city
+  if (!name) return
   const [dataWeather, setDataWeather] = useState({})
   const [isLoading, setIsLoading] = useState(true)
 
