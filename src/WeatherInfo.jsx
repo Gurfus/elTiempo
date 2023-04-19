@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { useFetchData } from './hooks/useFetchData'
 
 export const WeatherInfo = ({ city }) => {
-  const { name } = city
+  const { name, state, country } = city
   if (!name) return
   const { dataWeather } = useFetchData(city)
   const [weather, setWeather] = useState({})
@@ -18,7 +18,8 @@ export const WeatherInfo = ({ city }) => {
     fetchData()
   }, [weather, dataWeather])
   return (
-    <div>
+    <>
+        <h1>{name}, {state}, {country}</h1>
         <div>
             <label>Temperatura actual: </label>
             <span><p>{dataWeather.temp} Cº</p></span>
@@ -38,6 +39,6 @@ export const WeatherInfo = ({ city }) => {
         </div>
 
         <img src={dataWeather.urlIcon} alt=" " />
-    </div>
+    </>
   )
 }
