@@ -18,27 +18,46 @@ export const WeatherInfo = ({ city }) => {
     fetchData()
   }, [weather, dataWeather])
   return (
-    <>
-        <h1>{name}, {state}, {country}</h1>
-        <div>
-            <label>Temperatura actual: </label>
-            <span><p>{dataWeather.temp} Cº</p></span>
+    <div className= 'grid grid-cols-2 bg-gradient-to-r from-blue-600 via-blue-400 to-blue-400 p-6 max-w-6xl mx-auto bg-white rounded-xl shadow-lg '>
+        <div className='  '>
+          <h1 className='text-slate-100'>{name}, {state}, {country}</h1>
+          <div className='grid justify-items-center '>
+            <div >
+
+              <img className='w-64 h-64' src={`src/iconsV2/openweathermap/${dataWeather.icon}.svg`} alt=" " />
+            </div>
+
+          <div className=''>
+           <p className=' text-slate-100 text-8xl font-sans'>{dataWeather.temp} Cº</p>
+
+          </div>
+          </div>
         </div>
-        <div>
-            <label>Humedad: </label>
-            <span><p>{dataWeather.humidity} %</p></span>
+        <div className='  mt-10  space-y-3 '>
+          <div className='  bg-gray-100  shadow-lg p-3 rounded-xl items-center  flex space-x-2'>
+            <label>Humedad </label>
+            <p className=' text-lg font-sans text-black'>{dataWeather.humidity} %</p>
+            <img className='w-28 h-28' src= "src/iconsV2/openweathermap/humidity.svg" alt=" " />
+          </div>
+        <div className='  bg-gray-100  shadow-lg p-3 rounded-xl items-center flex space-x-2 '>
+            <label>Sensacion de </label>
+            <p className='text-lg font-sans text-black'>{dataWeather.feels} Cº</p>
+
+            <img className='w-28 h-28' src= "src/iconsV2/openweathermap/thermometer-celsius.svg" alt=" " />
+
+        </div>
+        <div className='  bg-gray-100  shadow-lg p-3 rounded-xl items-center flex space-x-2   '>
+            <label>Presión </label>
+            <p className='text-lg font-sans text-black'>{dataWeather.pressure} hPa</p>
+            <img className='w-28 h-28' src= "src/iconsV2/openweathermap/barometer.svg" alt=" " />
+        </div>
+        <div className='  bg-gray-100  shadow-lg p-3 rounded-xl items-center flex space-x-2  '>
+            <label>Viento  </label>
+            <p className='text-lg font-sans text-black'>{dataWeather.windS} Km/h</p>
+            <img className='w-28 h-28' src= "src/iconsV2/openweathermap/windsock.svg" alt=" " />
+        </div>
         </div>
 
-        <div>
-            <label>Sensacion de: </label>
-            <span><p>{dataWeather.feels} Cº</p></span>
-        </div>
-        <div>
-            <label>Presión: </label>
-            <span><p>{dataWeather.pressure} hPa</p></span>
-        </div>
-
-        <img src={dataWeather.urlIcon} alt=" " />
-    </>
+    </div>
   )
 }

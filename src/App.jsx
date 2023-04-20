@@ -11,7 +11,7 @@ export const App = () => {
     setCity(newCity)
   }
   return (
-    <div className="container mx-auto max-w-md">
+    <div className=" w-screen h-scree bg-gradient-to-r from-blue-200 via-blue-400 to-blue-600">
         <SearchLocation onNewCity={ (value) => onAddCity(value) }/>
 
           <div className='card'>

@@ -23,16 +23,18 @@ export const getData = async (city) => {
     const weather = {
       id: dataW.id,
       name,
-      temp: dataW.main.temp,
-      feels: dataW.main.feels_like,
+      temp: dataW.main.temp.toFixed(1),
+      feels: dataW.main.feels_like.toFixed(1),
       humidity: dataW.main.humidity,
       tempMax: dataW.main.temp_max,
       tempMin: dataW.main.temp_min,
       pressure: dataW.main.pressure,
       urlIcon: `https://openweathermap.org/img/wn/${dataW.weather[0].icon}@2x.png`,
-      wind: [dataW.wind.deg, dataW.wind.speed],
+      windS: dataW.wind.speed,
+      windD: dataW.wind.deg,
       lat,
-      lng: lon
+      lng: lon,
+      icon: dataW.weather[0].icon
     }
     console.log(weather)
 
