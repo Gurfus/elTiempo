@@ -6,11 +6,11 @@ import { WeatherInfo } from './WeatherInfo'
 export const CardView = ({ city }) => {
   console.log('cardCity', city)
   return (
-    <div>
-        <div className='mt-20'>
+    <div className=''>
+        <div className='grid justify-center items-center container mx-auto'>
         <WeatherInfo city = {city}/>
         </div>
-        <div className='mt-20'>
+        <div className=' grid justify-center items-center container mx-auto flex-wrap'>
         <RadarView city = {city}/>
         </div>
     </div>

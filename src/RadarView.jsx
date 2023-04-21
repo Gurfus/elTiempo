@@ -59,6 +59,6 @@ export const RadarView = ({ city }) => {
   }, [location])
 
   return (
-    <div id='mapid' style={{ width: '320px', height: '320px', padding: 0 }}></div>
+    <div id='mapid' style={{ width: '120px', height: '100%', padding: 1 }}></div>
   )
 }

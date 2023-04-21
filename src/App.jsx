@@ -11,10 +11,10 @@ export const App = () => {
     setCity(newCity)
   }
   return (
-    <div className=" w-screen h-scree bg-gradient-to-r from-blue-200 via-blue-400 to-blue-600">
+    <div className="container mx-auto flex flex-wrap">
         <SearchLocation onNewCity={ (value) => onAddCity(value) }/>
 
-          <div className='card'>
+          <div className=''>
           <CardView city={city} />
           </div>
 
