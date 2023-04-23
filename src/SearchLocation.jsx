@@ -36,7 +36,7 @@ export const SearchLocation = ({ onNewCity }) => {
     <input
       type="text"
       placeholder="Buscar Ciudad"
-      className="w-full py-2 px-4 border rounded-md bg-blue-100"
+      className="w-full py-2 px-4 border rounded-md bg-blue-300"
       value={inputValue}
       onChange={onInputChange}
     />

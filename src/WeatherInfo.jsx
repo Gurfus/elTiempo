@@ -1,83 +1,58 @@
 /* eslint-disable react/prop-types */
 
-import React, { useEffect, useState } from 'react'
-import { useFetchData } from './hooks/useFetchData'
+import React from 'react'
 
 // All requests made with the client will be authenticated
 
-export const WeatherInfo = ({ city }) => {
+export const WeatherInfo = ({ city, dataWeather, lang }) => {
   const { name, state, country } = city
 
   if (!name) return
-  const { dataWeather } = useFetchData(city)
-  const [weather, setWeather] = useState({})
 
-  const fetchData = () => {
-    if (dataWeather && typeof dataWeather.lat === 'number' && typeof dataWeather.lng === 'number') {
-      setWeather(dataWeather)
-    }
-  }
-  useEffect(() => {
-    fetchData()
-  }, [weather, dataWeather])
   return (
-    <div className= 'grid grid-cols-2 bg-gradient-to-r from-blue-800 via-blue-500 to-sky-400 p-6  rounded-xl shadow-lg '>
-        <div className='  '>
-          <h1 className='text-cyan-50  text-4xl'>{name}, {state}, {country}</h1>
-          <div className='grid justify-items-center '>
-            <div >
-              <img className='w-80 h-80' src={`src/iconsV2/openweathermap/${dataWeather.icon}.svg`} alt=" " />
-            </div>
-            <div className=''>
-              <p className=' text-cyan-50 text-8xl font-sans'>{dataWeather.temp} º</p>
 
-            </div>
-            <div className=''>{}</div>
-          </div>
-        </div>
+    <div className="bg-gradient-to-r from-blue-800 via-blue-600 to-sky-500 rounded-3xl shadow-xl p-4 h-full">
+      <p className="text-2xl font-sans  text-white ">{lang}, {state}, {country}</p>
+    <div className="flex justify-center items-center mb-4">
+      <h3 className="font-bold text-lg"></h3>
 
-        <div className=' shadow-2xl  rounded-xl mx-5 my-5 flex flex-wrap  '>
+      <div className="flex items-center justify-center  ">
 
-          <div className='  bg-cyan-200  shadow-2xl p-3 rounded-xl items-center flex  flex-wrap w-full my-2 mx-2'>
-            <label className='basis-1/4'>Humedad</label>
-            <p className='basis-2/4 text-5xl font-sans flex justify-center text- shadow-2xl text-neutral-600 bg-cyan-400 rounded-lg'>
-              {dataWeather.feels}
-              <label className='font-sans text-xs flex flex-col justify-center  text-neutral-600' > %</label>
-              </p>
-            <img className='basis-1/4 w-28 h-28' src= "src/iconsV2/openweathermap/humidity.svg" alt=" " />
+      <div className="h-64 w-64">
+        <img src={`src/iconsV2/openweathermap/${dataWeather.icon}.svg`} alt="Icon" className="h-full w-full object-contain"/>
+      </div>
 
-          </div>
-
-          <div className='  bg-cyan-200  shadow-lg p-3 rounded-xl items-center flex  flex-wrap w-full my-2 mx-2'>
-            <label className='basis-1/4'>Sensación</label>
-            <p className='basis-2/4 text-5xl font-sans flex justify-center text- shadow-2xl text-neutral-600 bg-cyan-400 rounded-lg'>
-              {dataWeather.feels}
-              <label className='font-sans text-xl flex flex-col text-neutral-600' > º</label>
-              </p>
-            <img className='basis-1/4 w-28 h-28' src= "src/iconsV2/openweathermap/thermometer-celsius.svg" alt=" " />
-
-          </div>
-          <div className='  bg-cyan-200  shadow-lg p-3 rounded-xl items-center flex  flex-wrap w-full my-2 mx-2'>
-            <label className='basis-1/4'>Presión</label>
-            <p className='basis-2/4 text-5xl font-sans flex justify-center text- shadow-2xl  text-neutral-600 bg-cyan-400 rounded-lg'>
-              {dataWeather.pressure}
-              <label className='font-sans text-xs flex flex-col-reverse ml-1 text-neutral-600' > hPa</label>
-              </p>
-            <img className='basis-1/4 w-28 h-28' src= "src/iconsV2/openweathermap/barometer.svg" alt=" " />
-
-          </div>
-
-          <div className='  bg-cyan-200  shadow-lg p-3 rounded-xl items-center flex  flex-wrap w-full my-2 mx-2'>
-            <label className='basis-1/4'>Viento</label>
-            <p className='basis-2/4 text-5xl font-sans flex justify-center text- shadow-2xl  text-neutral-600 bg-cyan-400 rounded-lg'>
-              {dataWeather.windS}
-              <label className='font-sans text-xs flex flex-col text-neutral-600 ' > km/h</label>
-              </p>
-            <img className='basis-1/4 w-28 h-28' src= "src/iconsV2/openweathermap/windsock.svg" alt=" " />
-
-          </div>
-        </div>
-
+      </div>
     </div>
+    <p className="text-7xl font-bold  text-cyan-300 ">{dataWeather.temp} ºC</p>
+    <p className="text-cyan-400 text-xl capitalize mb-4 mt-2">{dataWeather.description}</p>
+    <hr className="mb-4" />
+    <div className="grid grid-cols-2 gap-2 bg-white rounded-xl shadow-xl">
+      <div className="flex items-center">
+      <div className="h-12 w-12">
+        <img src="src/iconsV2/openweathermap/barometer.svg" alt="Icon" className="h-full w-full object-contain"/>
+      </div>
+        <span className="text-cyan-700 text-xl font-bold">{dataWeather.pressure} hPa</span>
+      </div>
+      <div className="flex items-center">
+      <div className="h-12 w-12">
+        <img src="src/iconsV2/openweathermap/humidity.svg" alt="Icon" className="h-full w-full object-contain"/>
+      </div>
+        <span className="text-cyan-700 text-xl font-bold">{dataWeather.humidity}%</span>
+      </div>
+      <div className="flex items-center">
+      <div className="h-12 w-12">
+        <img src="src/iconsV2/openweathermap/thermometer-celsius.svg" alt="Icon" className="h-full w-full object-contain"/>
+      </div>
+        <span className="text-cyan-700 text-xl font-bold">{dataWeather.feels}°</span>
+      </div>
+      <div className="flex items-center">
+      <div className="h-12 w-12">
+        <img src="src/iconsV2/openweathermap/windsock.svg" alt="Icon" className="h-full w-full object-contain"/>
+      </div>
+        <span className="text-cyan-700 text-xl font-bold">{dataWeather.windS} km/h</span>
+      </div>
+    </div>
+  </div>
   )
 }

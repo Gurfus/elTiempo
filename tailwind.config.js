@@ -5,7 +5,11 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
-    extend: {}
+    extend: {
+      backgroundImage: {
+        backgroundImage: 'url(src/backgrounds/beautiful-blue-sky-with-white-clouds.jpg)'
+      }
+    }
   },
   plugins: []
 }

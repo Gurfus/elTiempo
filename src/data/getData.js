@@ -23,11 +23,18 @@ export const getData = async (city) => {
     const dataW = await respW.json()
 
     console.log({ dataW })
+
+    const callForecast = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API}&units=metric&lang=sp&cnt=24`
+    const respF = await fetch(callForecast)
+    const dataF = await respF.json()
+    const forecast = { dataF }
+
+    console.log(forecast)
     const weather = {
       id: dataW.id,
       name,
-      localE: es,
-      localC: ca,
+      es,
+      ca,
       temp: dataW.main.temp.toFixed(1),
       feels: dataW.main.feels_like.toFixed(1),
       humidity: dataW.main.humidity,
@@ -39,7 +46,9 @@ export const getData = async (city) => {
       windD: dataW.wind.deg,
       lat,
       lng: lon,
-      icon: dataW.weather[0].icon
+      icon: dataW.weather[0].icon,
+      description: dataW.weather[0].description,
+      forecast
     }
     console.log(weather)
 

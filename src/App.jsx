@@ -11,13 +11,15 @@ export const App = () => {
     setCity(newCity)
   }
   return (
-    <div className="container mx-auto flex flex-wrap">
-        <SearchLocation onNewCity={ (value) => onAddCity(value) }/>
 
-          <div className=''>
-          <CardView city={city} />
-          </div>
+    <div className='bg-blue-900'>
+      <SearchLocation onNewCity={ (value) => onAddCity(value) }/>
+
+      <div className="container mx-auto my-10 rounded-xl ">
+        <CardView city={city}/>
+    </div>
 
     </div>
+
   )
 }
