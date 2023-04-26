@@ -5,14 +5,21 @@ import React from 'react'
 // All requests made with the client will be authenticated
 
 export const WeatherInfo = ({ city, dataWeather, lang }) => {
-  const { name, state, country } = city
+  const { name, country } = city
 
   if (!name) return
 
   return (
 
     <div className="bg-gradient-to-r from-blue-800 via-blue-600 to-sky-500 rounded-3xl shadow-xl p-4 h-full">
-      <p className="text-2xl font-sans  text-white ">{lang}, {state}, {country}</p>
+      {lang
+        ? (
+          <p className="text-2xl font-sans text-white">{lang}, {country}</p>
+          )
+        : (
+          <p className="text-2xl font-sans text-white">{name}, {country}</p>
+          )}
+
     <div className="flex justify-center items-center mb-4">
       <h3 className="font-bold text-lg"></h3>
 

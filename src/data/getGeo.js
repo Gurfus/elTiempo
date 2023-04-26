@@ -4,6 +4,6 @@ export const getGeo = async (city) => {
   const callGeo = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=3&appid=${API}&lang=sp`
   const respG = await fetch(callGeo)
   const dataG = await respG.json()
-  console.log({ dataG })
+
   return dataG
 }
