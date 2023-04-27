@@ -17,7 +17,7 @@ export const DetailsForecast = ({ onShowdetails, forecast }) => {
          {
         onShowdetails && (
           <div className="bg-white rounded-lg shadow-lg p-4 my-4">
-      <div className="font-medium text-lg text-center mb-4">Previsión 5 días </div>
+      <div className="font-medium text-lg text-center mb-4">Previsión cada 3 horas - {forecast.dataF.city.name}</div>
       <hr className='my-2'/>
       <div className="grid grid-cols-8 sm:grid-cols-4 gap-2 ">
 

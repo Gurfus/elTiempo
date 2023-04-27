@@ -22,7 +22,7 @@ export const Forecast = ({ onShowdetails, forecast }) => {
   }
   return (
     <div className="bg-white rounded-lg shadow-xl p-4 my-4">
-    <div className="font-medium text-lg text-center mb-4">Previsión 5 días</div>
+    <div className="font-medium text-lg text-center mb-4">Previsión 5 días - {forecast.dataF.city.name}</div>
     <hr className='my-2 border border-cyan-400'/>
     <div className="grid grid-cols-6 gap-2">
       {temperatureList.map((dayData, index) => (
